@@ -20,4 +20,8 @@
   <aside class="price">
     <%= humanized_money_with_symbol product.price %>
   </aside>
+
+  <%= render 'product_stock_badge', quantity: product.quantity%>
+
+
 </article>
