@@ -21,13 +21,7 @@
     <%= humanized_money_with_symbol product.price %>
   </aside>
 
-  <% if product.quantity <= 0 %>
-    <aside class='sold-out'>
-      SOLD OUT!
-    </aside>
-  <% elsif product.quantity <= 5 %>
-    <aside class='low-stock'>
-      LOW STOCK!
-    </aside>
-  <% end %>
+  <%= render 'product_stock_badge', quantity: product.quantity%>
+
+
 </article>

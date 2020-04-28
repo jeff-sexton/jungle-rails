@@ -92,6 +92,28 @@ main section.products-show {
     img.main-img {
       max-width: 100%;
     }
+    aside.sold-out {
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 10px;
+      background-color: rgb(213, 156, 154);
+      color: white;
+      border-top-left-radius: 4px;
+      border-bottom-right-radius: 20px;
+      font-size: 0.8em;
+    }
+    aside.low-stock {
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 10px;
+      background-color: palegoldenrod;
+      color: white;
+      border-top-left-radius: 4px;
+      border-bottom-right-radius: 20px;
+      font-size: 0.8em;
+    }
   }
 }
 
