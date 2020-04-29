@@ -12,9 +12,9 @@
 
   <main class="container">
 
-    <% if active_sale? %>
+    <% if active_sale %>
       <section class='sales alert alert-info'>
-        <p> There's a <%= "sale name"%> sale going on. Everything is <%= '%'%> off! </p>
+        <p> There's a <%= active_sale.name %> sale going on. Everything is <%= active_sale.percent_off %>% off! </p>
       </section>
     <% end %>
 
