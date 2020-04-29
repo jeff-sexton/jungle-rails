@@ -1,2 +1,27 @@
-<h1>Admin::Dashboard#show</h1>
-<p>Find me in app/views/admin/dashboard/show.html.erb</p>
+<section class="admin-dashboard">
+  <header class="page-header">
+    <h1>Admin &raquo; Dashboard</h1>
+  </header>
+
+  <div class="well admin-stats">
+      <div class='admin-info'>
+        <h4><%= link_to 'Total Products:',  [:admin, :products] %></h4>
+        <h5><%= @product_count %></h5>
+      </div>
+      <div class='admin-info'>
+        <h4>Total Categories:</h4>
+        <h5><%= @category_count %></h5>
+      </div>
+      <div class='admin-info'>
+        <h4>Total Orders:</h4>
+        <h5><%= @order_count %></h5>
+      </div>
+      <div class='admin-info'>
+        <h4>Order Revenue:</h4>
+        <h5><%= humanized_money_with_symbol @order_revenue / 100.00 %></h5>
+      </div>
+  </div>
+
+
+
+</section>
