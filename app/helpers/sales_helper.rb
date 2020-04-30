@@ -1,6 +1,6 @@
 module SalesHelper
   def active_sale
-    Sale.active.order(percent_off: :desc).first
+    Sale.highest_active
     # return highest discount sale?
   end
 end
