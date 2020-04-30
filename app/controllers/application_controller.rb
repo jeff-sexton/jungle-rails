@@ -25,7 +25,10 @@ class ApplicationController < ActionController::Base
   helper_method :enhanced_cart
 
   def cart_subtotal_cents
-    enhanced_cart.map {|entry| entry[:product].price_cents * entry[:quantity]}.sum
+    active_sale = Sale.highest_active
+    discount = ( active_sale && 1 - active_sale.percent_off / 100.00 ) || 1
+
+    enhanced_cart.map {|entry| entry[:product].price_cents * discount * entry[:quantity]}.sum.to_i
   end
   helper_method :cart_subtotal_cents
 
