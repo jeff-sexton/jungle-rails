@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
 
-  before_filter :authorize
+  # before_filter :authorize
 
   def index
     @orders = Order.where(email: current_user.email)

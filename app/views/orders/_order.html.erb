@@ -1,0 +1,11 @@
+<tr>
+  <td>
+    <h4><%= link_to order.id, order %></h4>
+  </td>
+  <td>
+    <%= order.created_at %>
+  </td>
+  <td>
+    <%= humanized_money_with_symbol order.total %>
+  </td>
+</tr>
