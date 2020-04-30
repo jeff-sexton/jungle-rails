@@ -37,6 +37,9 @@ class OrdersController < ApplicationController
   end
 
   def create_order(stripe_charge)
+    active_sale = Sale.highest_active
+    discount = ( active_sale && 1 - active_sale.percent_off / 100.00 ) || 1
+
     order = Order.new(
       email: params[:stripeEmail],
       total_cents: cart_subtotal_cents,
@@ -46,11 +49,13 @@ class OrdersController < ApplicationController
     enhanced_cart.each do |entry|
       product = entry[:product]
       quantity = entry[:quantity]
+
+      discount_price = product.price * discount
       order.line_items.new(
         product: product,
         quantity: quantity,
-        item_price: product.price,
-        total_price: product.price * quantity
+        item_price: discount_price,
+        total_price: discount_price * quantity
       )
     end
     order.save!
