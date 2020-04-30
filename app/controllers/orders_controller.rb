@@ -1,5 +1,12 @@
 class OrdersController < ApplicationController
 
+  before_filter :authorize
+
+  def index
+    @orders = Order.where(email: current_user.email)
+
+  end
+
   def show
     @order = Order.find(params[:id])
     @line_items = @order.line_items.map {|item| { line_item:item, product:Product.find(item.product_id) } }
