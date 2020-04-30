@@ -43,13 +43,22 @@
             <li><%= link_to 'Sales',  [:admin, :sales] %></li>
           </ul>
         </li>
-        <% if current_user %>
-          <li><%= link_to current_user.email, :orders %></li>
-          <li><%= link_to 'Logout', '/logout' %></li>
-        <% else %>
-          <li><%= link_to 'Login', '/login' %></li>
-          <li><%= link_to 'Signup', '/signup' %></li>
-        <% end %>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+
+            <span><%= fa_icon 'user', text: (current_user && current_user.email) || 'Login' %></span>
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+          <% if current_user %>
+            <li><%= link_to "Current Orders", :orders %></li>
+            <li><%= link_to 'Logout', '/logout' %></li>
+          <% else %>
+            <li><%= link_to 'Existing User', '/login' %></li>
+            <li><%= link_to 'Signup', '/signup' %></li>
+          <% end %>
+          </ul>
+        </li>
         <li>
           <%= link_to cart_path do %>
             <%= fa_icon "shopping-cart" %> My Cart (<%= cart.size %>)

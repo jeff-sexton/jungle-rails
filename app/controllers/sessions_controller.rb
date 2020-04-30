@@ -1,19 +1,21 @@
 class SessionsController < ApplicationController
 
   def new
+    @message = nil
   end
 
   def create
-    user = User.find_by_email(params[:email])
+    @user = User.find_by_email(params[:email])
     # If the user exists AND the password entered is correct.
-    if user && user.authenticate(params[:password])
+    if @user && @user.authenticate(params[:password])
       # Save the user id inside the browser cookie. This is how we keep the user 
       # logged in when they navigate around our website.
-      session[:user_id] = user.id
+      session[:user_id] = @user.id
       redirect_to '/'
     else
     # If user's login doesn't work, send them back to the login form.
-      redirect_to '/login'
+      @message = 'Sorry! Email and password do not match.'
+      render 'sessions/new'
     end
   end
 
