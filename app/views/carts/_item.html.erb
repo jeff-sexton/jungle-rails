@@ -10,12 +10,19 @@
   <td>
     <%= humanized_money_with_symbol product.price %>
   </td>
+  <% discount = 1 %>
+  <% if active_sale %>
+    <% discount = 1 - active_sale.percent_off / 100.00 %>
+    <td>
+      <%= humanized_money_with_symbol product.price * discount %>
+    </td>
+  <% end %>
   <td>
     <%= button_to remove_item_cart_path(product_id: product.id), class: 'btn btn-xs btn-danger' do %> - <% end %>
     <%= quantity %>
     <%= button_to add_item_cart_path(product_id: product.id), class: 'btn btn-xs btn-success' do %> + <% end %>
   </td>
   <td>
-    <%= humanized_money_with_symbol product.price * quantity %>
+    <%= humanized_money_with_symbol product.price * discount * quantity %>
   </td>
 </tr>
