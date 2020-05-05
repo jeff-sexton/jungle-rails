@@ -87,5 +87,19 @@ RSpec.describe User, type: :model do
         "Password confirmation doesn't match Password"
       )
     end
+
+    it "is not valid with a password less than 8 characters long" do
+      subject.password = "short"
+      subject.password_confirmation = "short"
+      expect(subject).to_not be_valid
+      expect(subject.errors.full_messages).to include(
+        "Password is too short (minimum is 8 characters)"
+      )
+
+    end
+  end
+
+  describe '.authenticate_with_credentials' do
+    # examples for this class method here
   end
 end
