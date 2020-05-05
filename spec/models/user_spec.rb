@@ -110,9 +110,8 @@ RSpec.describe User, type: :model do
         )
       @existing_user.save
 
-      controller = SessionsController.new
       session =
-        controller.authenticate_with_credentials(
+        User.authenticate_with_credentials(
           @existing_user.email,
           @existing_user.password
         )
@@ -131,9 +130,8 @@ RSpec.describe User, type: :model do
         )
       @existing_user.save
 
-      controller = SessionsController.new
       session =
-        controller.authenticate_with_credentials(
+        User.authenticate_with_credentials(
           @existing_user.email,
           'wrongPassword'
         )
