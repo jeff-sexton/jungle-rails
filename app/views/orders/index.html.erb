@@ -6,6 +6,8 @@
 
   <div class="panel panel-default orders">
 
+  <% if @orders.any? %>
+
     <table class="table table-bordered">
       <thead>
         <tr>
@@ -18,6 +20,14 @@
         <%= render @orders %>
       </tbody>
     </table>
+
+    <% else %>
+      <div class="alert alert-primary text-center" role="alert">
+        It looks like you don't have any orders friend.
+        <br>
+        <a class="alert-link" href="/">Click here to get back to shopping.</a>
+      </div>
+    <% end %>
 
   </div>
 
