@@ -138,5 +138,45 @@ RSpec.describe User, type: :model do
 
       expect(session).to be_nil
     end
+
+    it 'returns correct user when supplied an email with extra spaces' do
+      @existing_user =
+        User.new(
+          first_name: 'Francis',
+          last_name: 'Baocon',
+          email: 'baconTheDog@mail.com',
+          password: 'thisIsAPassword',
+          password_confirmation: 'thisIsAPassword'
+        )
+      @existing_user.save
+
+      session =
+        User.authenticate_with_credentials(
+          ' baconTheDog@mail.com  ',
+          @existing_user.password
+        )
+
+        expect(session).to eq(@existing_user)
+    end
+
+    it 'returns correct user when supplied an email with diffent cases' do
+      @existing_user =
+        User.new(
+          first_name: 'Francis',
+          last_name: 'Baocon',
+          email: 'baconTheDog@mail.com',
+          password: 'thisIsAPassword',
+          password_confirmation: 'thisIsAPassword'
+        )
+      @existing_user.save
+
+      session =
+        User.authenticate_with_credentials(
+          'BACONTHEDOG@mail.com',
+          @existing_user.password
+        )
+        
+        expect(session).to eq(@existing_user)
+    end
   end
 end
