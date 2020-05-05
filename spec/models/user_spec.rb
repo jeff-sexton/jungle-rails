@@ -88,18 +88,57 @@ RSpec.describe User, type: :model do
       )
     end
 
-    it "is not valid with a password less than 8 characters long" do
-      subject.password = "short"
-      subject.password_confirmation = "short"
+    it 'is not valid with a password less than 8 characters long' do
+      subject.password = 'short'
+      subject.password_confirmation = 'short'
       expect(subject).to_not be_valid
       expect(subject.errors.full_messages).to include(
-        "Password is too short (minimum is 8 characters)"
+        'Password is too short (minimum is 8 characters)'
       )
-
     end
   end
 
   describe '.authenticate_with_credentials' do
-    # examples for this class method here
+    it 'returns the existing user when supplied with the correct email and password' do
+      @existing_user =
+        User.new(
+          first_name: 'Francis',
+          last_name: 'Baocon',
+          email: 'baconTheDog@mail.com',
+          password: 'thisIsAPassword',
+          password_confirmation: 'thisIsAPassword'
+        )
+      @existing_user.save
+
+      controller = SessionsController.new
+      session =
+        controller.authenticate_with_credentials(
+          @existing_user.email,
+          @existing_user.password
+        )
+
+      expect(session).to eq(@existing_user)
+    end
+
+    it 'returns nil when supplied with the correct email but incorrect password' do
+      @existing_user =
+        User.new(
+          first_name: 'Francis',
+          last_name: 'Baocon',
+          email: 'baconTheDog@mail.com',
+          password: 'thisIsAPassword',
+          password_confirmation: 'thisIsAPassword'
+        )
+      @existing_user.save
+
+      controller = SessionsController.new
+      session =
+        controller.authenticate_with_credentials(
+          @existing_user.email,
+          'wrongPassword'
+        )
+
+      expect(session).to be_nil
+    end
   end
 end

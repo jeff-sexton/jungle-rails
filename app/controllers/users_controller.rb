@@ -15,9 +15,6 @@ class UsersController < ApplicationController
     end
   end
 
-  string = 'AAAAA'
-  string.lower
-
   private
     def user_params
       params.require(:user).permit(
