@@ -10,7 +10,7 @@
 
       <div class="col-sm-4">
         <%= image_tag @product.image.url, class: 'main-img' %>
-    <%= render 'product_stock_badge', quantity: @product.quantity%>
+    <%= render 'product_stock_badge', product: @product%>
       </div>
 
       <%= render 'product_details'%>

@@ -8,4 +8,12 @@ class Product < ActiveRecord::Base
   validates :price, presence: true
   validates :quantity, presence: true
   validates :category, presence: true
+
+  def out_of_stock?
+    quantity <= 0
+  end
+
+  def low_stock?
+    quantity <= 5
+  end
 end

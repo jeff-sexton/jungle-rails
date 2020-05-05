@@ -1,8 +1,8 @@
-  <% if quantity <= 0 %>
+  <% if product.out_of_stock? %>
     <aside class='sold-out'>
       SOLD OUT!
     </aside>
-  <% elsif quantity <= 5 %>
+  <% elsif product.low_stock? %>
     <aside class='low-stock'>
       LOW STOCK!
     </aside>
