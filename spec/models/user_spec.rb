@@ -156,7 +156,7 @@ RSpec.describe User, type: :model do
           @existing_user.password
         )
 
-        expect(session).to eq(@existing_user)
+      expect(session).to eq(@existing_user)
     end
 
     it 'returns correct user when supplied an email with diffent cases' do
@@ -175,8 +175,8 @@ RSpec.describe User, type: :model do
           'BACONTHEDOG@mail.com',
           @existing_user.password
         )
-        
-        expect(session).to eq(@existing_user)
+
+      expect(session).to eq(@existing_user)
     end
   end
 end

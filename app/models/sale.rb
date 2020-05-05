@@ -1,11 +1,18 @@
 class Sale < ActiveRecord::Base
-
   def self.highest_active
-    where("sales.starts_on <= ? AND sales.ends_on > ?", Date.current, Date.current).order(percent_off: :desc).first
+    where(
+      'sales.starts_on <= ? AND sales.ends_on > ?',
+      Date.current,
+      Date.current
+    ).order(percent_off: :desc).first
   end
-  
+
   def self.active
-    where("sales.starts_on <= ? AND sales.ends_on > ?", Date.current, Date.current)
+    where(
+      'sales.starts_on <= ? AND sales.ends_on > ?',
+      Date.current,
+      Date.current
+    )
   end
 
   def finished?
