@@ -17,9 +17,12 @@ RSpec.feature "Visitor navigates to product page", type: :feature, js: true do
     end
   end
 
-  scenario "They see the details for a product" do
+  scenario "They see the details for a product after navigating from the home page" do
     # ACT
-    visit '/products/1'
+    visit root_path
+
+    # click_on ""
+    page.first('article.product > header > a').click
 
     # DEBUG / VERIFY
     save_screenshot
