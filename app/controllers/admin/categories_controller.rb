@@ -1,10 +1,6 @@
-class Admin::CategoriesController < ApplicationController
-  user = ENV['ADMIN_USER']
-  pass = ENV['ADMIN_PASS']
-  http_basic_authenticate_with name: user, password: pass
-
+class Admin::CategoriesController < Admin::BaseController
   def index
-    @categories = Category.order(id: :desc).all
+    @categories = Category.order(id: :desc).all # end #   { line_item: item, product: Product.find(item.product_id) } # @order.line_items.map do |item| # end #   {    } # @categories = @categories.map do |category|
   end
 
   def new
