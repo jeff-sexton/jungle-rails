@@ -66,5 +66,5 @@ class OrdersController < ApplicationController
     end
     order.save!
     order
-  end # empty hash means no products in cart :)
+  end
 end
