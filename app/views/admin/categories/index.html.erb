@@ -4,6 +4,7 @@
     <h1>Admin &raquo; All Categories</h1>
   </header>
 
+
   <div class="well">
     <%= link_to '+ New Category', [:new, :admin, :category], class: 'btn btn-info' %>
   </div>
@@ -14,11 +15,13 @@
       <thead>
         <tr>
           <th>Category</th>
-          <th></th>
+          <th>Products</th>
         </tr>
       </thead>
       <tbody>
-        <%= render @categories %>
+      <% @categories.each do |category|%>
+        <%= render 'category', category: category[:category], product_count: category[:product_count]%>
+      <% end %>
       </tbody>
     </table>
 

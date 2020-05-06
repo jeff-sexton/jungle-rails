@@ -1,6 +1,13 @@
 class Admin::CategoriesController < Admin::BaseController
   def index
-    @categories = Category.order(id: :desc).all # end #   { line_item: item, product: Product.find(item.product_id) } # @order.line_items.map do |item| # end #   {    } # @categories = @categories.map do |category|
+    @categories = Category.order(id: :desc).all
+    @categories =
+      @categories.map do |category|
+        {
+          category: category,
+          product_count: Product.where('category_id = ?', category.id).count
+        }
+      end
   end
 
   def new
