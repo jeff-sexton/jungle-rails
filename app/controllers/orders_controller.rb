@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  before_filter :authorize
+  # before_filter :authorize
 
   def index
     @orders = Order.where(email: current_user.email)
@@ -20,6 +20,9 @@ class OrdersController < ApplicationController
   def create
     charge = perform_stripe_charge
     order = create_order(charge)
+
+    puts "**** Charge ***"
+    puts charge.inspect
 
     if order.valid?
       empty_cart!
@@ -64,6 +67,8 @@ class OrdersController < ApplicationController
         total_price: discount_price * quantity
       )
     end
+    puts "***** here *****"
+    puts order.inspect
     order.save!
     order
   end
