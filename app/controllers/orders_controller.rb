@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  # before_filter :authorize
+  before_filter :authorize
 
   def index
     @orders = Order.where(email: current_user.email)
@@ -20,9 +20,6 @@ class OrdersController < ApplicationController
   def create
     charge = perform_stripe_charge
     order = create_order(charge)
-
-    puts "**** Charge ***"
-    puts charge.inspect
 
     if order.valid?
       empty_cart!
@@ -53,13 +50,18 @@ class OrdersController < ApplicationController
     active_sale = Sale.highest_active
     discount = (active_sale && 1 - active_sale.percent_off / 100.00) || 1
 
-    order = Order.new()
+    order =
+      Order.new(
+        email: params[:stripeEmail],
+        total_cents: cart_subtotal_cents,
+        stripe_charge_id: stripe_charge.id
+      )
 
     enhanced_cart.each do |entry|
       product = entry[:product]
       quantity = entry[:quantity]
 
-      discount_price = product.price * discount
+      discount_price = product.price_cents * discount
       order.line_items.new(
         product: product,
         quantity: quantity,
@@ -67,8 +69,7 @@ class OrdersController < ApplicationController
         total_price: discount_price * quantity
       )
     end
-    puts "***** here *****"
-    puts order.inspect
+
     order.save!
     order
   end
