@@ -22,7 +22,6 @@ Note: Admin console is accessable with the default username and password shown i
 !["Product Index Page"](https://raw.githubusercontent.com/jeff-sexton/jungle-rails/master/docs/Product_index.png)
 !["Cart Page"](https://raw.githubusercontent.com/jeff-sexton/jungle-rails/master/docs/Shopping_cart.png)
 !["Checkout with Stripe Integration"](https://raw.githubusercontent.com/jeff-sexton/jungle-rails/master/docs/Stripe_checkout.png)
-![""](https://raw.githubusercontent.com/jeff-sexton/jungle-rails/master/docs/Order%20Confirmation.png)
 !["Order Confirmation"](https://raw.githubusercontent.com/jeff-sexton/jungle-rails/master/docs/Order%20Confirmation.png)
 !["Admin Dashboard"](https://raw.githubusercontent.com/jeff-sexton/jungle-rails/master/docs/Admin%20Dashboard.png)
 !["Add new sale"](https://raw.githubusercontent.com/jeff-sexton/jungle-rails/master/docs/Adding%20Sale.png)
