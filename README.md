@@ -11,10 +11,11 @@ Added features/fixes inculde:
 - Site wide sales that impact product price
 - Completed Order display and order indexing by user
 - Static about page
-
 - product inventory updates based on orders
 
+The project has been hosted at https://guarded-meadow-74842.herokuapp.com/ for demonstration purposes.
 
+Note: Admin console is accessable with the default username and password shown in the example .env file.
 
 ## Final Product
 
@@ -61,3 +62,8 @@ More information in their docs: <https://stripe.com/docs/testing#cards>
 * dotenv-rails
 * rspec-rails
 * faker
+
+## Possible Future Features
+
+* Email order confirmations
+* Product Reviews & Comments 
