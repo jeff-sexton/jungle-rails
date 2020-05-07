@@ -19,10 +19,15 @@ Note: Admin console is accessable with the default username and password shown i
 
 ## Final Product
 
-!["Appointment Display"](https://raw.githubusercontent.com/jeff-sexton/scheduler/master/docs/Appointment_display.png)
-!["Booking Interview"](https://raw.githubusercontent.com/jeff-sexton/scheduler/master/docs/Booking_interview.png)
-!["Edit or Delete Interview"](https://raw.githubusercontent.com/jeff-sexton/scheduler/master/docs/EditDelete_interview.png)
-!["Delete Confirmation"](https://raw.githubusercontent.com/jeff-sexton/scheduler/master/docs/Delete_confirmation.png)
+!["Product Index Page"](https://raw.githubusercontent.com/jeff-sexton/jungle-rails/master/docs/Product_index.png)
+!["Cart Page"](https://raw.githubusercontent.com/jeff-sexton/jungle-rails/master/docs/Shopping_cart.png)
+!["Checkout with Stripe Integration"](https://raw.githubusercontent.com/jeff-sexton/jungle-rails/master/docs/Stripe_checkout.png)
+![""](https://raw.githubusercontent.com/jeff-sexton/jungle-rails/master/docs/Order%20Confirmation.png)
+!["Order Confirmation"](https://raw.githubusercontent.com/jeff-sexton/jungle-rails/master/docs/Order%20Confirmation.png)
+!["Admin Dashboard"](https://raw.githubusercontent.com/jeff-sexton/jungle-rails/master/docs/Admin%20Dashboard.png)
+!["Add new sale"](https://raw.githubusercontent.com/jeff-sexton/jungle-rails/master/docs/Adding%20Sale.png)
+!["Sale Index"](https://raw.githubusercontent.com/jeff-sexton/jungle-rails/master/docs/Sale%20Index.png)
+!["Admin Product List"](https://raw.githubusercontent.com/jeff-sexton/jungle-rails/master/docs/Admin%20Product%20List.png)
 
 
 ## Setup
@@ -67,3 +72,4 @@ More information in their docs: <https://stripe.com/docs/testing#cards>
 
 * Email order confirmations
 * Product Reviews & Comments 
+* Add more interactivce styling to Admin dashboard
